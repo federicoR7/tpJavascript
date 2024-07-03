@@ -1,0 +1,84 @@
+/*se agrego receteo de html */
+html{
+    font-size: 62.5%;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+background-image: url(https://images.app.goo.gl/aBeuJRJHR7FVtJEZA);
+    background-color: rgb(54, 104, 196);
+
+   
+}
+
+#letra{
+    font-family: "Roboto Flex", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+    color: white;
+    background-image: url(https://images.app.goo.gl/aBeuJRJHR7FVtJEZA);
+}
+    
+.title {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background-color: rgb(219, 103, 36);
+}
+
+.inp{
+    text-align: center;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bolder;
+    border-radius: 6px;
+    color: rgb(0, 0, 0);
+    
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+
+.Imagen {
+    width: 500px;
+    height: 500px;
+}
+.Div {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+    border: rgb(2, 1, 1) solid 4px;
+    border-radius: 3rem;
+    width: 80%;
+    background-color: rgb(219, 103, 36) ;
+    
+}
+.Div p{
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 15px;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.Imagen{
+    width: 200px;
+    height: 300px;
+}
