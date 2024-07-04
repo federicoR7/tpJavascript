@@ -17,13 +17,12 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
     const nombreDB = document.createElement("span")
     const imagenDB = document.createElement("img")
     const kiDB = document.createElement("span")
-    const maxKiDB = document.createElement("span")
+    const maxKiDB = document.createElement("span") 
     const historiaDB = document.createElement("p")
 
     nombreDB.textContent = `Nombre: ${nombre}`
     imagenDB.src = imagen
     kiDB.textContent = `Su KI inicial es de ${ki}`
-    //Mi hola mundo :(
     maxKiDB.textContent = `Su KI maximo es de ${maxKi}`
     historiaDB.textContent = `Historia: ${historia}`
     nombreDB.classList.add(`Nombre`)
