@@ -6,28 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./estilos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
     <title>Dragon Ball Z</title>
 </head>
 
 <body id="letra">
 
     <div class="title">
-        <div class="barraBusqueda">
-            <input type="text" id="input" class="inp" placeholder="ingresa un personaje">
-            <button id="button">Buscar</button>
-        </div> 
-
         <div class="divImgTitulo">
             <img src="./images/DRAGON-BALL-personajes-4-7-2024.png" alt="">
         </div>
 
-        <div class="buttonHisBox">
-            <button id="buttonHis">Historial</button>  
-        </div>      
+
+
+
+
+        <div class="buttonHisBox" class="buttonFavoritos">
+
+            <div class="barraBusqueda">
+                <input type="text" id="input" class="inp" placeholder="ingresa un personaje">
+                <button id="button">Buscar</button>
+            </div>
+            <div class="buttonBoxFavHis">
+                <button id="buttonHis">Historial</button>
+                <button id="buttonFav">Favoritos</button>
+            </div>
+        </div>
+
     </div>
-    
+
 
     <main id="main">
 
@@ -35,15 +45,41 @@
 
         </div>
     </main>
-    
+
 
     <ul id="historial">
-        
+
     </ul>
 
-    <footer id="footer">esto es un footer</footer>
+    <footer id="footer">
+        <div>
+            <p class="texto-footer">&copy; Pagina de DragonBall 2024</p>
+            <div>
+                <strong>TODOS LOS DERECHOS RESERVADOS A:</strong>
+                <ul>
+                    <li>Federico Rabanedo</li>
+                    <li>Nicolas Biancaniello</li>
+                    <li>Cristian Segovia</li>
+                    <li>lautaro bombace</li>
+                    <li>Moreno Ramiro</li>
+                </ul>
+            </div>
+    </footer>
 
-    <script src="./js/main.js"></script>
+
+    <script src="./js/main.js">
+        `const buttonFav = document.getElementById("favorite");
+        const marcarFavorito = () => {
+        if (favoritos.indexOf(input.value) === -1)
+            favoritos.push(input.value);
+        else
+            favoritos.pop(input.value);
+
+        console.log(favoritos);
+        };
+
+        buttonFav.addEventListener("click", marcarFavorito);`;
+    </script>
 </body>
 
 </html>

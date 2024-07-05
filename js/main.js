@@ -1,43 +1,71 @@
 const main = document.getElementById("main")
-const button = document.getElementById("button")
-const API = `https://dragonball-api.com/api/characters?limit=100`
-const input = document.getElementById("input")
-fetch(API)
-    .then(response => response.json())
-    // .then(json => console.log(json))
-    .then(json => {
-        // const guerrero = json.items["0"]
-        guerrero = json.items
+const buttonBuscar = document.getElementById("button")
+const buttonHist = document.getElementById(`buttonHis`);
+const API = `https://dragonball-api.com/api/characters?limit=100`;
+const input = document.getElementById("input");
 
-        // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
-    })
+// Utilizados en fav.js, usar solo let, no const
+let buttonFav;
+let marcarFavorito;
+
+fetch(API)
+  .then(response => response.json())
+  // .then(json => console.log(json))
+  .then(json => {
+    // const guerrero = json.items["0"]
+    guerrero = json.items
+
+    // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
+  })
 // .catch(error => console.error(`tiene un error: ${error}`))
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
-    const div = document.createElement("div")
-    const nombreDB = document.createElement("span")
-    const imagenDB = document.createElement("img")
-    const kiDB = document.createElement("span")
-    const maxKiDB = document.createElement("span") 
-    const historiaDB = document.createElement("p")
+  //!Creando los elementos📌
+  const divNombre = document.createElement("div");
+  const divHistoria = document.createElement("div");
+  const divKis = document.createElement("div");
+  const div = document.createElement("div");
+  const nombreDB = document.createElement("span");
+  const imagenDB = document.createElement("img");
+  const kiDB = document.createElement("span");
+  const maxKiDB = document.createElement("span");
+  const historiaDB = document.createElement("p");
+  const fav = document.createElement("button");
+  const script = document.createElement("script");
 
-    nombreDB.textContent = `Nombre: ${nombre}`
-    imagenDB.src = imagen
-    kiDB.textContent = `Su KI inicial es de ${ki}`
-    maxKiDB.textContent = `Su KI maximo es de ${maxKi}`
-    historiaDB.textContent = `Historia: ${historia}`
-    nombreDB.classList.add(`Nombre`)
-    imagenDB.classList.add(`Imagen`)
-    kiDB.classList.add(`Ki`)
-    maxKiDB.classList.add(`MaxKi`)
-    div.classList.add(`Div`)
+  //!Contenido📌
+  nombreDB.textContent = `Nombre: ${nombre}`
+  fav.innerHTML = stringBotonFavorito();
+  imagenDB.src = imagen
+  kiDB.textContent = `Su KI inicial es de ${ki}`
+  //Mi hola mundo :(
+  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`
+  historiaDB.textContent = `Historia: ${historia}`
 
-    main.appendChild(nombreDB)
-    main.appendChild(imagenDB)
-    main.appendChild(kiDB)
-    main.appendChild(maxKiDB)
-    main.appendChild(div)
-    main.appendChild(historiaDB)
-    div.append(nombreDB, imagenDB, kiDB, maxKiDB, historiaDB)
+  //!Clases📌
+  fav.classList.add('buttonHisBox')
+  nombreDB.classList.add(`Nombre`)
+  imagenDB.classList.add(`Imagen`)
+  kiDB.classList.add(`Ki`)
+  maxKiDB.classList.add(`MaxKi`)
+  div.classList.add(`Div`)
+  divKis.classList.add('divKis')
+  divHistoria.classList.add('divHistoria')
+  divNombre.classList.add("divNombre")
+
+  //!Ponerlo en el DOM📌
+  divNombre.append(nombreDB)
+  main.appendChild(divKis)
+  main.appendChild(imagenDB)
+  main.appendChild(div)
+  main.appendChild(historiaDB)
+  divKis.append(kiDB, maxKiDB)
+  divHistoria.append(historiaDB)
+  div.append(divNombre, imagenDB, fav, divKis, divHistoria)
+
+  //Carga dinamica de JS
+  script.src = './js/fav.js';
+  script.defer = true;
+  document.head.appendChild(script);
 }
 // const buscarGuerrero = () => {
 //     const input = document.getElementById("input")
@@ -46,32 +74,73 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
 //         if (guerrerFor == input.value) {
 //             mostrarEnElDom(guerrerFor.name, guerrerFor.image, guerrerFor.ki)
 //         }
-//!Hola xd
+//!Hola xd 3 de choclo, 2 de carne
 //     }
 // }
 
-const buscarGuerrero = () => {
-    main.innerHTML = " ";
-    for (let i = 0; i < guerrero.length; i++) {
-        const guerreroFor = guerrero[i];
-        if (guerreroFor.name.toLowerCase() === input.value.toLowerCase()) {
-            mostrarEnElDom(guerreroFor.name, guerreroFor.image, guerreroFor.ki, guerreroFor.maxKi, guerreroFor.description);
-        }
-    }
-};
-button.addEventListener("click", buscarGuerrero)
-const historial = document.getElementById(`buttonHis`)
-
 let historialDeBusqueda = [];
+const buscarGuerrero = () => {
+  main.innerHTML = " ";
 
-const añadirAlHistorial = () => {
-    if (historialDeBusqueda.indexOf(input.value) === -1) {
-        historialDeBusqueda.push(input.value)
+  if (input.value.trim() === "") {
+    alert("Por favor, ingrese un personaje de Dragon Ball Z");
+    document.querySelector("#input").value = "";
+  } else {
+    for (elegido of guerrero) {
+      if (elegido.name.toLowerCase() === input.value.toLowerCase()) {
+        mostrarEnElDom(elegido.name, elegido.image, elegido.ki, elegido.maxKi, elegido.description);
+      }
     }
-    console.log(historialDeBusqueda);
+  }
+};
 
+const guardarBusqueda = () => {
+  if (historialDeBusqueda.indexOf(input.value) === -1) {
+    historialDeBusqueda.push(input.value);
+  }
+};
+
+buttonBuscar.addEventListener("click", buscarGuerrero);
+buttonBuscar.addEventListener("click", guardarBusqueda);
+
+const mostrarHistorial = () => {
+  let hist = document.getElementById(`historial`);
+  hist.toggleAttribute("hidden");
 }
 
-historial.addEventListener("click", añadirAlHistorial)
+buttonHist.addEventListener("click", mostrarHistorial);
 
-const ul = document.getElementById("historial")
+let favoritos = [];
+
+function stringBotonFavorito() {
+  return `
+    <input
+      value="favorite-button"
+      name="favorite-checkbox"
+      id="favorite"
+      type="checkbox"
+    />
+    <label class="container" for="favorite">
+      <svg
+        class="feather feather-heart"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        viewBox="0 0 24 24"
+        height="24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        ></path>
+      </svg>
+      <div class="action">
+        <span class="option-1">Add to Favorites</span>
+        <span class="option-2">Added to Favorites</span>
+      </div>
+    </label>
+  `
+}
