@@ -1,12 +1,16 @@
 const main = document.getElementById("main")
 const buttonBuscar = document.getElementById("button")
-const buttonHist = document.getElementById(`buttonHis`);
+const buttonHist = document.getElementById("buttonHis");
+const buttonFav = document.getElementById("buttonFav");
 const API = `https://dragonball-api.com/api/characters?limit=100`;
 const input = document.getElementById("input");
 
+let currentGuerrero = [];
+
 // Utilizados en fav.js, usar solo let, no const
-let buttonFav;
+let checkFav;
 let marcarFavorito;
+let favoritos = [];
 
 fetch(API)
   .then(response => response.json())
@@ -42,7 +46,7 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   historiaDB.textContent = `Historia: ${historia}`
 
   //!Clases📌
-  fav.classList.add('buttonHisBox')
+  // fav.classList.add('buttonHisBox')
   nombreDB.classList.add(`Nombre`)
   imagenDB.classList.add(`Imagen`)
   kiDB.classList.add(`Ki`)
@@ -89,28 +93,35 @@ const buscarGuerrero = () => {
     for (elegido of guerrero) {
       if (elegido.name.toLowerCase() === input.value.toLowerCase()) {
         mostrarEnElDom(elegido.name, elegido.image, elegido.ki, elegido.maxKi, elegido.description);
+        currentGuerrero = [elegido.name, elegido.image];
+        guardarBusqueda(currentGuerrero);
+        console.log(currentGuerrero);
       }
     }
   }
 };
 
-const guardarBusqueda = () => {
-  if (historialDeBusqueda.indexOf(input.value) === -1) {
-    historialDeBusqueda.push(input.value);
-  }
-};
-
-buttonBuscar.addEventListener("click", buscarGuerrero);
-buttonBuscar.addEventListener("click", guardarBusqueda);
-
-const mostrarHistorial = () => {
-  let hist = document.getElementById(`historial`);
-  hist.toggleAttribute("hidden");
+function guardarBusqueda(name, image) {
+  if(!historialDeBusqueda.some(item => item[0] === name))
+    historialDeBusqueda.push([name, image]);
 }
 
-buttonHist.addEventListener("click", mostrarHistorial);
+buttonBuscar.addEventListener("click", buscarGuerrero);
 
-let favoritos = [];
+const mostrarFavoritos = () => {
+  let fav = document.getElementById(`divFavoritos`);
+  fav.toggleAttribute("hidden");
+}
+
+buttonFav.addEventListener("click", mostrarFavoritos);
+
+// ToDo: Crear historial
+// const mostrarHistorial = () => {
+//   let hist = document.getElementById(`historial`);
+//   hist.toggleAttribute("hidden");
+// }
+
+// buttonHist.addEventListener("click", mostrarHistorial);
 
 function stringBotonFavorito() {
   return `
@@ -137,10 +148,7 @@ function stringBotonFavorito() {
           d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
         ></path>
       </svg>
-      <div class="action">
-        <span class="option-1">Add to Favorites</span>
-        <span class="option-2">Added to Favorites</span>
-      </div>
+      
     </label>
   `
 }

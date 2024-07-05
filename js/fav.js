@@ -1,11 +1,18 @@
-buttonFav =  document.getElementById("favorite");
+checkFav =  document.getElementById("favorite");
+tablaFav = document.getElementById("tablaFavoritos");
 marcarFavorito = () => {
-if (favoritos.indexOf(input.value) === -1)
-   favoritos.push(input.value);
-else
-   favoritos.splice(favoritos.indexOf(input.value), 1);
 
-console.log(favoritos);
+   console.log(currentGuerrero);
+   if (favoritos.indexOf(currentGuerrero.name) === -1)
+      favoritos.push(currentGuerrero);
+   else
+      favoritos.splice(favoritos.indexOf(currentGuerrero.name), 1);
+
+   tablaFav.innerHTML = ``;
+   console.log(favoritos);
+   for(fav of favoritos){
+      tablaFav.innerHTML += `<tr><td>${fav.name}</td><td>${fav.image}</td></tr>`;
+   }
 };
 
-buttonFav.addEventListener("click", marcarFavorito);
+checkFav.addEventListener("click", marcarFavorito);
