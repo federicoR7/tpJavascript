@@ -1,249 +1,250 @@
 /*se agrego reseteo de html */
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-image: url(./images/Papeles\ digitales\ Dragon\ Ball\ Z\ \(1\).jpeg);
-    background-color: rgb(54, 104, 196);
+  background-image: url(./images/Papeles\ digitales\ Dragon\ Ball\ Z\ \(1\).jpeg);
+  background-color: rgb(54, 104, 196);
 
 }
 
 #letra {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
 }
 
 .title {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(223, 114, 51, 0.8);
-    
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(223, 114, 51, 0.8);
+
 }
 
 .title img {
-    width: 40%;
+  width: 40%;
 }
 
 .divImgTitulo {
-    display: flex;
-    justify-content: flex-start;
-    width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  width: 40%;
 }
 
 .inp {
-    text-align: center;
-    height: 30px;
-    font-size: 14px;
-    border-radius: 6px;
-    color: rgb(0, 0, 0);
-    width: 30rem;
-    border-radius: 50px;
-    margin-top: 1rem;
+  text-align: center;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 6px;
+  color: rgb(0, 0, 0);
+  width: 30rem;
+  border-radius: 50px;
+  margin-top: 1rem;
 
 
 }
 
 #button {
-    width: 15rem;
-    height: 3rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    border-radius: 50px;
-    background-color: rgb(83, 81, 190);
-    font-size: 1.5rem;
+  width: 15rem;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-radius: 50px;
+  background-color: rgb(83, 81, 190);
+  font-size: 1.5rem;
 }
 
 #button:hover {
-    scale: 110%;
-    background-color: rgb(255, 108, 23);
+  scale: 110%;
+  background-color: rgb(255, 108, 23);
 
 }
 
 #buttonHis,
 #buttonFav {
-    width: 15rem;
-    height: 3rem;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    border-radius: 50px;
-    background-color: rgb(83, 81, 190);
-    font-size: 1.5rem;
+  width: 15rem;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 50px;
+  background-color: rgb(83, 81, 190);
+  font-size: 1.5rem;
 }
 
 #buttonHis:hover,
 #buttonFav:hover {
-    scale: 110%;
-    background-color: rgb(255, 108, 23);
+  scale: 110%;
+  background-color: rgb(255, 108, 23);
 
 }
 
 .barraBusqueda {
-    width: 39%;
-    margin-left: 2rem;
-}
-.buttonBoxFavHis{
-   width: 40;
+  width: 39%;
+  margin-left: 2rem;
 }
 
-.buttonHisBox{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
+.buttonBoxFavHis {
+  width: 40;
+}
+
+.buttonHisBox {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
 
 .Imagen {
-    width: 500px;
-    height: 500px;
+  width: 500px;
+  height: 500px;
 }
 
 .Div {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 15px;
-    border: rgb(2, 1, 1) solid 2px;
-    border-radius: 3rem;
-    width: 80%;
-    height: 35rem;
-    background-color: rgb(223, 114, 51, 0.8);
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+  border: rgb(2, 1, 1) solid 2px;
+  border-radius: 3rem;
+  width: 80%;
+  height: 35rem;
+  background-color: rgb(223, 114, 51, 0.8);
 
 }
 
 .Div p {
-    display: flex;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 15px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 15px;
 }
 
 #main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    position: relative;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  min-height: 100vh;
 
 
 }
 
 .Imagen {
-    width: 200px;
-    height: 300px;
+  width: 200px;
+  height: 300px;
 }
 
 .Nombre {
-    margin-left: 1rem;
-    margin-bottom: 30rem;
+  margin-left: 1rem;
+  margin-bottom: 30rem;
 }
 
 #footer {
-    background-color: rgb(223, 114, 51, 0.8);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  background-color: rgb(223, 114, 51, 0.8);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 
 }
+
 .texto-footer {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    font-size: 2rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  font-size: 2rem;
 }
 
 /*estilos para la carta de personaje*/
-.Nombre{
-    
-}
+.Nombre {}
+
 /*aca terminan los estilos de la carta*/
 
 .container {
-    background-color: rgba(36, 36, 36, 0.247);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    /* padding: 10px 15px 10px 10px; */
-    cursor: pointer;
-    user-select: none;
-    border-radius: 10px;
-    box-shadow: rgba(46, 46, 46, 0.2) 0px 8px 24px;
-    color: rgb(211, 29, 29);
+  background-color: rgba(36, 36, 36, 0.247);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  /* padding: 10px 15px 10px 10px; */
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+  box-shadow: rgba(46, 46, 46, 0.2) 0px 8px 24px;
+  color: rgb(211, 29, 29);
+}
+
+#favorite {
+  display: none;
+}
+
+#favorite:checked+.container svg {
+  fill: hsl(0deg 100% 50%);
+  stroke: hsl(0deg 100% 50%);
+  animation: heartButton 1s;
+}
+
+@keyframes heartButton {
+  0% {
+    transform: scale(1);
   }
-  
-  #favorite {
-    display: none;
+
+  25% {
+    transform: scale(1.3);
   }
-  
-  #favorite:checked + .container svg {
-    fill: hsl(0deg 100% 50%);
-    stroke: hsl(0deg 100% 50%);
-    animation: heartButton 1s;
+
+  50% {
+    transform: scale(1);
   }
-  
-  @keyframes heartButton {
-    0% {
-      transform: scale(1);
-    }
-  
-    25% {
-      transform: scale(1.3);
-    }
-  
-    50% {
-      transform: scale(1);
-    }
-  
-    75% {
-      transform: scale(1.3);
-    }
-  
-    100% {
-      transform: scale(1);
-    }
+
+  75% {
+    transform: scale(1.3);
   }
-  
-  #favorite + .container .action {
-    position: relative;
-    overflow: hidden;
-    display: grid;
+
+  100% {
+    transform: scale(1);
   }
-  
-  #favorite + .container .action span {
-    grid-column-start: 1;
-    grid-column-end: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    transition: all 0.5s;
-  }
-  
-  #favorite + .container .action span.option-1 {
-    transform: translate(0px, 0%);
-    opacity: 1;
-  }
-  
-  #favorite:checked + .container .action span.option-1 {
-    transform: translate(0px, -100%);
-    opacity: 0;
-  }
-  
-  #favorite + .container .action span.option-2 {
-    transform: translate(0px, 100%);
-    opacity: 0;
-  }
-  
-  #favorite:checked + .container .action span.option-2 {
-    transform: translate(0px, 0%);
-    opacity: 1;
-  }
+}
+
+#favorite+.container .action {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+}
+
+#favorite+.container .action span {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  transition: all 0.5s;
+}
+
+#favorite+.container .action span.option-1 {
+  transform: translate(0px, 0%);
+  opacity: 1;
+}
+
+#favorite:checked+.container .action span.option-1 {
+  transform: translate(0px, -100%);
+  opacity: 0;
+}
+
+#favorite+.container .action span.option-2 {
+  transform: translate(0px, 100%);
+  opacity: 0;
+}
+
+#favorite:checked+.container .action span.option-2 {
+  transform: translate(0px, 0%);
+  opacity: 1;
+}

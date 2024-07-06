@@ -1,11 +1,11 @@
-const main = document.getElementById("main")
-const buttonBuscar = document.getElementById("button")
+const main = document.getElementById("main");
+const buttonBuscar = document.getElementById("button");
 const buttonHist = document.getElementById("buttonHis");
 const buttonFav = document.getElementById("buttonFav");
 const API = `https://dragonball-api.com/api/characters?limit=100`;
 const input = document.getElementById("input");
-
 let currentGuerrero = [];
+let historialDeBusqueda = [];
 
 // Utilizados en fav.js, usar solo let, no const
 let checkFav;
@@ -14,19 +14,11 @@ let favoritos = [];
 
 fetch(API)
   .then(response => response.json())
-  // .then(json => console.log(json))
   .then(json => {
-    // const guerrero = json.items["0"]
-    guerrero = json.items
+    guerrero = json.items;
+  });
 
-    // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
-  })
-// .catch(error => console.error(`tiene un error: ${error}`))
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
-  //!Creando los elementos📌
-  const divNombre = document.createElement("div");
-  const divHistoria = document.createElement("div");
-  const divKis = document.createElement("div");
   const div = document.createElement("div");
   const nombreDB = document.createElement("span");
   const imagenDB = document.createElement("img");
@@ -34,67 +26,37 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   const maxKiDB = document.createElement("span");
   const historiaDB = document.createElement("p");
   const fav = document.createElement("button");
-  const script = document.createElement("script");
 
-  //!Contenido📌
-  nombreDB.textContent = `Nombre: ${nombre}`
+  nombreDB.textContent = `Nombre: ${nombre}`;
   fav.innerHTML = stringBotonFavorito();
-  imagenDB.src = imagen
-  kiDB.textContent = `Su KI inicial es de ${ki}`
-  //Mi hola mundo :(
-  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`
-  historiaDB.textContent = `Historia: ${historia}`
+  imagenDB.src = imagen;
+  kiDB.textContent = `Su KI inicial es de ${ki}`;
+  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`;
+  historiaDB.textContent = `Historia: ${historia}`;
 
-  //!Clases📌
-  // fav.classList.add('buttonHisBox')
-  nombreDB.classList.add(`Nombre`)
-  imagenDB.classList.add(`Imagen`)
-  kiDB.classList.add(`Ki`)
-  maxKiDB.classList.add(`MaxKi`)
-  div.classList.add(`Div`)
-  divKis.classList.add('divKis')
-  divHistoria.classList.add('divHistoria')
-  divNombre.classList.add("divNombre")
+  nombreDB.classList.add("Nombre");
+  imagenDB.classList.add("Imagen");
+  kiDB.classList.add("Ki");
+  maxKiDB.classList.add("MaxKi");
+  div.classList.add("Div");
 
-  //!Ponerlo en el DOM📌
-  divNombre.append(nombreDB)
-  main.appendChild(divKis)
-  main.appendChild(imagenDB)
-  main.appendChild(div)
-  main.appendChild(historiaDB)
-  divKis.append(kiDB, maxKiDB)
-  divHistoria.append(historiaDB)
-  div.append(divNombre, imagenDB, fav, divKis, divHistoria)
+  div.append(nombreDB, imagenDB, fav, kiDB, maxKiDB, historiaDB);
+  main.appendChild(div);
 
-  //Carga dinamica de JS
-  script.src = './js/fav.js';
-  script.defer = true;
-  document.head.appendChild(script);
-}
-// const buscarGuerrero = () => {
-//     const input = document.getElementById("input")
-//     for (let i = 0; i < guerrero.length; i++) {
-//         const guerrerFor = guerrero[i];
-//         if (guerrerFor == input.value) {
-//             mostrarEnElDom(guerrerFor.name, guerrerFor.image, guerrerFor.ki)
-//         }
-//!Hola xd 3 de choclo, 2 de carne
-//     }
-// }
+  guardarBusqueda(nombreDB.textContent, imagenDB.src);
+};
 
-let historialDeBusqueda = [];
 const buscarGuerrero = () => {
-  main.innerHTML = " ";
+  main.innerHTML = "";
 
   if (input.value.trim() === "") {
     alert("Por favor, ingrese un personaje de Dragon Ball Z");
-    document.querySelector("#input").value = "";
+    input.value = "";
   } else {
-    for (elegido of guerrero) {
+    for (const elegido of guerrero) {
       if (elegido.name.toLowerCase() === input.value.toLowerCase()) {
         mostrarEnElDom(elegido.name, elegido.image, elegido.ki, elegido.maxKi, elegido.description);
         currentGuerrero = [elegido.name, elegido.image];
-        guardarBusqueda(currentGuerrero);
         console.log(currentGuerrero);
       }
     }
@@ -102,26 +64,36 @@ const buscarGuerrero = () => {
 };
 
 function guardarBusqueda(name, image) {
-  if(!historialDeBusqueda.some(item => item[0] === name))
+  if (!historialDeBusqueda.some(item => item[0] === name)) {
     historialDeBusqueda.push([name, image]);
+  }
 }
 
+const mostrarHistorial = () => {
+  const historialElement = document.getElementById("historial");
+  historialElement.innerHTML = "";
+  historialDeBusqueda.forEach(item => {
+    //!Carga de la función
+    const li = document.createElement("li");
+    li.textContent = `Nombre: ${item[0]}`;
+    const img = document.createElement("img");
+    img.src = item[1];
+    img.style.height = "50px";
+    img.style.widows = "50px";
+    li.appendChild(img);
+    historialElement.appendChild(li);
+  });
+};
+
 buttonBuscar.addEventListener("click", buscarGuerrero);
+buttonHist.addEventListener("click", mostrarHistorial);
 
 const mostrarFavoritos = () => {
-  let fav = document.getElementById(`divFavoritos`);
+  let fav = document.getElementById("divFavoritos");
   fav.toggleAttribute("hidden");
 }
 
 buttonFav.addEventListener("click", mostrarFavoritos);
-
-// ToDo: Crear historial
-// const mostrarHistorial = () => {
-//   let hist = document.getElementById(`historial`);
-//   hist.toggleAttribute("hidden");
-// }
-
-// buttonHist.addEventListener("click", mostrarHistorial);
 
 function stringBotonFavorito() {
   return `
@@ -148,7 +120,6 @@ function stringBotonFavorito() {
           d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
         ></path>
       </svg>
-      
     </label>
-  `
+  `;
 }
