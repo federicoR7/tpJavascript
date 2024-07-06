@@ -102,12 +102,11 @@ body {
 
 
 .Imagen {
-    width: 500px;
-    height: 500px;
+
 }
 
 .Div {
-    margin-top: 5rem;
+    margin-top: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,6 +119,8 @@ body {
     background-color: rgb(223, 114, 51, 0.8);
 
 }
+
+
 
 .Div p {
     display: flex;
@@ -139,15 +140,6 @@ body {
 
 }
 
-.Imagen {
-    width: 200px;
-    height: 300px;
-}
-
-.Nombre {
-    margin-left: 1rem;
-    margin-bottom: 30rem;
-}
 
 #footer {
     background-color: rgb(223, 114, 51, 0.8);
@@ -164,9 +156,30 @@ body {
 }
 
 /*estilos para la carta de personaje*/
-.Nombre{
-    
+.Nombre {
+font-size:clamp(0.5rem, 1vw, 5rem) ;
+
 }
+
+.divNombre{
+  margin-bottom: 27rem;
+}
+
+.divHistoria{
+  font-size: clamp(0.5rem, 1vw, 5rem);
+}
+
+.divKis{
+  font-size: clamp(0.5rem, 1vw, 5rem);
+}
+.Imagen{
+  width: 30%;
+}
+
+
+
+
+
 /*aca terminan los estilos de la carta*/
 
 .container {

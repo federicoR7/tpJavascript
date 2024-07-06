@@ -4,7 +4,6 @@ const buttonHist = document.getElementById("buttonHis");
 const buttonFav = document.getElementById("buttonFav");
 const API = `https://dragonball-api.com/api/characters?limit=100`;
 const input = document.getElementById("input");
-
 let currentGuerrero = [];
 
 // Utilizados en fav.js, usar solo let, no const
@@ -66,10 +65,14 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   divHistoria.append(historiaDB)
   div.append(divNombre, imagenDB, fav, divKis, divHistoria)
 
-  //Carga dinamica de JS
+  //!Carga dinamica de JS
   script.src = './js/fav.js';
   script.defer = true;
   document.head.appendChild(script);
+
+  historialDeBusqueda.push(input.value)
+  guardarBusqueda(nombreDB,imagenDB)
+  // añadirAlHistoria()
 }
 // const buscarGuerrero = () => {
 //     const input = document.getElementById("input")
@@ -82,7 +85,7 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
 //     }
 // }
 
-let historialDeBusqueda = [];
+//!Historial
 const buscarGuerrero = () => {
   main.innerHTML = " ";
 
@@ -100,9 +103,10 @@ const buscarGuerrero = () => {
     }
   }
 };
+let historialDeBusqueda = [];
 
 function guardarBusqueda(name, image) {
-  if(!historialDeBusqueda.some(item => item[0] === name))
+  if (!historialDeBusqueda.some(item => item[0] === name))
     historialDeBusqueda.push([name, image]);
 }
 
@@ -116,6 +120,15 @@ const mostrarFavoritos = () => {
 buttonFav.addEventListener("click", mostrarFavoritos);
 
 // ToDo: Crear historial
+
+const añadirAlHistoria = () => {
+  const historial = document.getElementById("historial");
+  const li = document.createElement("li")
+  li.textContent = input.value
+  historial.appendChild(li)
+
+}
+buttonHist.addEventListener("click",añadirAlHistoria)
 // const mostrarHistorial = () => {
 //   let hist = document.getElementById(`historial`);
 //   hist.toggleAttribute("hidden");
