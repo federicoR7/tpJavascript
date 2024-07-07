@@ -11,7 +11,8 @@ html {
 body {
     background-image: url(./images/Papeles\ digitales\ Dragon\ Ball\ Z\ \(1\).jpeg);
     background-color: rgb(54, 104, 196);
-
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 #letra {
@@ -32,11 +33,11 @@ body {
     width: 40%;
 }
 
-.divImgTitulo {
+/* .divImgTitulo {
     display: flex;
     justify-content: flex-start;
     width: 40%;
-}
+} */
 
 .inp {
     text-align: center;
@@ -118,7 +119,6 @@ body {
     width: 80%;
     height: 35rem;
     background-color: rgb(223, 114, 51, 0.8);
-
 }
 
 .Div p {
@@ -134,9 +134,7 @@ body {
     align-items: center;
     gap: 30px;
     position: relative;
-    min-height: 100vh;
-
-
+    min-height: 50vh;
 }
 
 .Imagen {
@@ -167,6 +165,7 @@ body {
 .Nombre{
     
 }
+
 /*aca terminan los estilos de la carta*/
 
 .container {
@@ -182,6 +181,39 @@ body {
     color: rgb(211, 29, 29);
   }
   
+  /* Cards Favoritos */
+  .divFavoritos, h3{
+    margin: 6rem;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    border: rgb(2, 1, 1) solid 2px;
+    border-radius: 3rem;
+    width: 80%;
+    background-color: rgb(223, 114, 51, 0.8);
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  #card-favs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .imgFav{
+    max-height: 100px;
+    max-width: 100px;
+  }
+
+  /* Check Favoritos */
   #favorite {
     display: none;
   }

@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
-    <title>Dragon Ball Z</title>
+    <title>Dragon Ball Personajes</title>
 </head>
 
 <body id="letra">
@@ -19,10 +19,6 @@
         <div class="divImgTitulo">
             <img src="./images/DRAGON-BALL-personajes-4-7-2024.png" alt="">
         </div>
-
-
-
-
 
         <div class="buttonHisBox" class="buttonFavoritos">
 
@@ -40,24 +36,23 @@
 
 
     <main id="main">
-
         <div class="divKi">
 
         </div>
     </main>
 
 
-    <ul id="historial">
+    <ul id="historial" hidden>
 
     </ul>
 
-    <div id="divFavoritos">
-        <h3>Favoritos</h3>
-        <table id="tablaFavoritos">
-            <tbody>
-                
-            </tbody>
-        </table>
+    <div class="row divFavoritos hidden" id="favoritos">
+        <div class="main-title">
+            <h1>Favoritos</h1>
+        </div>
+        <div class="col-6 col-sm-4" id="card-favs">
+            <!-- Contenido generado desde JS -->
+        </div>
     </div>
 
     <footer id="footer">
@@ -75,8 +70,15 @@
             </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/classes.js"></script>
+    
 </body>
 
 </html>

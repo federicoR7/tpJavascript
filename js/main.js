@@ -4,13 +4,21 @@ const buttonHist = document.getElementById("buttonHis");
 const buttonFav = document.getElementById("buttonFav");
 const API = `https://dragonball-api.com/api/characters?limit=100`;
 const input = document.getElementById("input");
+const emptyFavs = `
+      <div class="col-6 col-sm-4" id="card-favs">
+        <div class="card card-favorito">
+          <p>No hay favoritos</p>
+        </div>
+      </div>
+    `;
 
-let currentGuerrero = [];
+let currentGuerrero;
 
 // Utilizados en fav.js, usar solo let, no const
 let checkFav;
 let marcarFavorito;
 let favoritos = [];
+let cardFavs = document.getElementById("card-favs");
 
 fetch(API)
   .then(response => response.json())
@@ -22,6 +30,7 @@ fetch(API)
     // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
   })
 // .catch(error => console.error(`tiene un error: ${error}`))
+
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   //!Creando los elementos📌
   const divNombre = document.createElement("div");
@@ -71,16 +80,6 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   script.defer = true;
   document.head.appendChild(script);
 }
-// const buscarGuerrero = () => {
-//     const input = document.getElementById("input")
-//     for (let i = 0; i < guerrero.length; i++) {
-//         const guerrerFor = guerrero[i];
-//         if (guerrerFor == input.value) {
-//             mostrarEnElDom(guerrerFor.name, guerrerFor.image, guerrerFor.ki)
-//         }
-//!Hola xd 3 de choclo, 2 de carne
-//     }
-// }
 
 let historialDeBusqueda = [];
 const buscarGuerrero = () => {
@@ -93,35 +92,37 @@ const buscarGuerrero = () => {
     for (elegido of guerrero) {
       if (elegido.name.toLowerCase() === input.value.toLowerCase()) {
         mostrarEnElDom(elegido.name, elegido.image, elegido.ki, elegido.maxKi, elegido.description);
-        currentGuerrero = [elegido.name, elegido.image];
+        currentGuerrero = new Guerrero(elegido.name, elegido.image);
         guardarBusqueda(currentGuerrero);
-        console.log(currentGuerrero);
+
+        const botonFav = document.getElementById("favorite");
+        const index = favoritos.findIndex(fav => fav.nombre === currentGuerrero.nombre);
+        if (index === -1) {
+            botonFav.removeAttribute("checked");
+        } else {
+            botonFav.setAttribute("checked", true);
+        }
       }
     }
   }
 };
 
-function guardarBusqueda(name, image) {
-  if(!historialDeBusqueda.some(item => item[0] === name))
-    historialDeBusqueda.push([name, image]);
+function guardarBusqueda(guerrero) {
+  if(!historialDeBusqueda.some(item => item[0] === guerrero.nombre))
+    historialDeBusqueda.push(guerrero);
 }
 
 buttonBuscar.addEventListener("click", buscarGuerrero);
 
 const mostrarFavoritos = () => {
-  let fav = document.getElementById(`divFavoritos`);
-  fav.toggleAttribute("hidden");
+  let fav = document.getElementById(`favoritos`);
+  fav.classList.toggle(`hidden`);
+
+  if (favoritos.length == 0)
+    cardFavs.innerHTML = emptyFavs;
 }
 
 buttonFav.addEventListener("click", mostrarFavoritos);
-
-// ToDo: Crear historial
-// const mostrarHistorial = () => {
-//   let hist = document.getElementById(`historial`);
-//   hist.toggleAttribute("hidden");
-// }
-
-// buttonHist.addEventListener("click", mostrarHistorial);
 
 function stringBotonFavorito() {
   return `
