@@ -31,28 +31,47 @@ fetch(API)
 
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   const div = document.createElement("div");
-  const nombreDB = document.createElement("span");
-  const imagenDB = document.createElement("img");
-  const kiDB = document.createElement("span");
-  const maxKiDB = document.createElement("span");
-  const historiaDB = document.createElement("p");
-  const fav = document.createElement("button");
+  // const nombreDB = document.createElement("span");
+  // const imagenDB = document.createElement("img");
+  // const kiDB = document.createElement("span");
+  // const maxKiDB = document.createElement("span");
+  // const historiaDB = document.createElement("p");
+  // const fav = document.createElement("button");
   const script = document.createElement("script");
 
-  nombreDB.textContent = `Nombre: ${nombre}`;
-  fav.innerHTML = stringBotonFavorito();
-  imagenDB.src = imagen;
-  kiDB.textContent = `Su KI inicial es de ${ki}`;
-  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`;
-  historiaDB.textContent = `Historia: ${historia}`;
+  // nombreDB.textContent = Nombre: ${nombre};
+  // fav.innerHTML = stringBotonFavorito();
+  // imagenDB.src = imagen;
+  // kiDB.textContent = Su KI inicial es de ${ki};
+  // maxKiDB.textContent = Su KI maximo es de ${maxKi};
+  // historiaDB.textContent = Historia: ${historia};
 
-  nombreDB.classList.add("Nombre");
-  imagenDB.classList.add("Imagen");
-  kiDB.classList.add("Ki");
-  maxKiDB.classList.add("MaxKi");
-  div.classList.add("Div");
+  // nombreDB.classList.add("Nombre");
+  // imagenDB.classList.add("Imagen");
+  // kiDB.classList.add("Ki");
+  // maxKiDB.classList.add("MaxKi");
+  // div.classList.add("Div");
+  div.innerHTML = `<div class="Div">
+            <div class="divNombre"><span class="Nombre">${nombre}</span>
+            <button>`
+            +stringBotonFavorito()+
+            `</button>
+            <img src="${imagen}" class="Imagen">
+            
+            <div class="divKis">
+                <span class="Ki">Ki: ${ki}</span>
+                <br>
+                <span class="MaxKi">Max Ki:${maxKi}</span>
+            </div>
+            
+            </div>
+            
+            <div class="divHistoria">
+                <p>${historia}</p>
+            </div>
+        </div>`;
 
-  div.append(nombreDB, imagenDB, fav, kiDB, maxKiDB, historiaDB);
+  // div.append(nombreDB, imagenDB, fav, kiDB, maxKiDB, historiaDB);
   main.appendChild(div);
 
   //!Carga dinamica de JS
@@ -86,7 +105,7 @@ const buscarGuerrero = () => {
     }
   }
 };
-let historialDeBusqueda = [];
+
 
 function guardarBusqueda(guerrero) {
   if(!historialDeBusqueda.some(item => item[0] === guerrero.nombre))
