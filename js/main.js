@@ -27,7 +27,6 @@ fetch(API)
   });
 
     // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
-  })
 // .catch(error => console.error(`tiene un error: ${error}`))
 
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
@@ -38,35 +37,23 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   const maxKiDB = document.createElement("span");
   const historiaDB = document.createElement("p");
   const fav = document.createElement("button");
+  const script = document.createElement("script");
 
   nombreDB.textContent = `Nombre: ${nombre}`;
   fav.innerHTML = stringBotonFavorito();
-  imagenDB.src = imagen
-  kiDB.textContent = `Su KI inicial es de ${ki}`
-  //Mi hola mundo :(
-  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`
-  historiaDB.textContent = `Historia: ${historia}`
+  imagenDB.src = imagen;
+  kiDB.textContent = `Su KI inicial es de ${ki}`;
+  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`;
+  historiaDB.textContent = `Historia: ${historia}`;
 
-  //!Clases📌
-  // fav.classList.add('buttonHisBox')
-  nombreDB.classList.add(`Nombre`)
-  imagenDB.classList.add(`Imagen`)
-  kiDB.classList.add(`Ki`)
-  maxKiDB.classList.add(`MaxKi`)
-  div.classList.add(`Div`)
-  divKis.classList.add('divKis')
-  divHistoria.classList.add('divHistoria')
-  divNombre.classList.add("divNombre")
+  nombreDB.classList.add("Nombre");
+  imagenDB.classList.add("Imagen");
+  kiDB.classList.add("Ki");
+  maxKiDB.classList.add("MaxKi");
+  div.classList.add("Div");
 
-  //!Ponerlo en el DOM📌
-  divNombre.append(nombreDB)
-  main.appendChild(divKis)
-  main.appendChild(imagenDB)
-  main.appendChild(div)
-  main.appendChild(historiaDB)
-  divKis.append(kiDB, maxKiDB)
-  divHistoria.append(historiaDB)
-  div.append(divNombre, imagenDB, fav, divKis, divHistoria)
+  div.append(nombreDB, imagenDB, fav, kiDB, maxKiDB, historiaDB);
+  main.appendChild(div);
 
   //Carga dinamica de JS
   script.src = './js/fav.js';

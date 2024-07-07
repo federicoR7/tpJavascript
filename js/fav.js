@@ -7,7 +7,6 @@ marcarFavorito = () => {
    } else {
       favoritos.splice(index, 1);
    }
-
    cardFavs.innerHTML = '';
    if(favoritos.length == 0){
       cardFavs.innerHTML = emptyFavs;
