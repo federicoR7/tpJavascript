@@ -100,10 +100,9 @@ const buscarGuerrero = () => {
   }
 };
 
-function guardarBusqueda(name, image) {
-  if (!historialDeBusqueda.some(item => item[0] === name)) {
-    historialDeBusqueda.push([name, image]);
-  }
+function guardarBusqueda(guerrero) {
+  if(!historialDeBusqueda.some(item => item[0] === guerrero.nombre))
+    historialDeBusqueda.push(guerrero);
 }
 
 const mostrarHistorial = () => {
