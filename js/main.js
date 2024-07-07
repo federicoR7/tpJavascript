@@ -23,6 +23,7 @@ fetch(API)
 // .catch(error => console.error(`tiene un error: ${error}`))
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   //!Creando los elementos📌
+
   const divNombre = document.createElement("div");
   const divHistoria = document.createElement("div");
   const divKis = document.createElement("div");
@@ -47,7 +48,7 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   //!Clases📌
   // fav.classList.add('buttonHisBox')
   nombreDB.classList.add(`Nombre`)
-  imagenDB.classList.add(`Imagen`)
+  imagenDB.classList.add(`Imagen`) 
   kiDB.classList.add(`Ki`)
   maxKiDB.classList.add(`MaxKi`)
   div.classList.add(`Div`)
@@ -56,10 +57,10 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   divNombre.classList.add("divNombre")
 
   //!Ponerlo en el DOM📌
+  main.appendChild(div)
   divNombre.append(nombreDB)
   main.appendChild(divKis)
   main.appendChild(imagenDB)
-  main.appendChild(div)
   main.appendChild(historiaDB)
   divKis.append(kiDB, maxKiDB)
   divHistoria.append(historiaDB)
@@ -110,7 +111,7 @@ function guardarBusqueda(name, image) {
     historialDeBusqueda.push([name, image]);
 }
 
-buttonBuscar.addEventListener("click", buscarGuerrero);
+//buttonBuscar.addEventListener("click", buscarGuerrero);
 
 const mostrarFavoritos = () => {
   let fav = document.getElementById(`divFavoritos`);
