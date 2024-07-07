@@ -1,35 +1,36 @@
 /*se agrego reseteo de html */
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
     background-image: url(./images/Papeles\ digitales\ Dragon\ Ball\ Z\ \(1\).jpeg);
     background-color: rgb(54, 104, 196);
-
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 #letra {
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
 }
 
 .title {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgb(223, 114, 51, 0.8);
-    
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(223, 114, 51, 0.8);
+
 }
 
 .title img {
-    width: 40%;
+  width: 40%;
 }
 
 .divImgTitulo {
@@ -39,64 +40,65 @@ body {
 }
 
 .inp {
-    text-align: center;
-    height: 30px;
-    font-size: 14px;
-    border-radius: 6px;
-    color: rgb(0, 0, 0);
-    width: 30rem;
-    border-radius: 50px;
-    margin-top: 1rem;
+  text-align: center;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 6px;
+  color: rgb(0, 0, 0);
+  width: 30rem;
+  border-radius: 50px;
+  margin-top: 1rem;
 
 
 }
 
 #button {
-    width: 15rem;
-    height: 3rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    border-radius: 50px;
-    background-color: rgb(83, 81, 190);
-    font-size: 1.5rem;
+  width: 15rem;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-radius: 50px;
+  background-color: rgb(83, 81, 190);
+  font-size: 1.5rem;
 }
 
 #button:hover {
-    scale: 110%;
-    background-color: rgb(255, 108, 23);
+  scale: 110%;
+  background-color: rgb(255, 108, 23);
 
 }
 
 #buttonHis,
 #buttonFav {
-    width: 15rem;
-    height: 3rem;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    border-radius: 50px;
-    background-color: rgb(83, 81, 190);
-    font-size: 1.5rem;
+  width: 15rem;
+  height: 3rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border-radius: 50px;
+  background-color: rgb(83, 81, 190);
+  font-size: 1.5rem;
 }
 
 #buttonHis:hover,
 #buttonFav:hover {
-    scale: 110%;
-    background-color: rgb(255, 108, 23);
+  scale: 110%;
+  background-color: rgb(255, 108, 23);
 
 }
 
 .barraBusqueda {
-    width: 39%;
-    margin-left: 2rem;
-}
-.buttonBoxFavHis{
-   width: 40;
+  width: 39%;
+  margin-left: 2rem;
 }
 
-.buttonHisBox{
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
+.buttonBoxFavHis {
+  width: 40;
+}
+
+.buttonHisBox {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
@@ -113,24 +115,23 @@ body {
     align-items: center;
     gap: 30px;
     position: relative;
-    min-height: 100vh;
-
-
+    min-height: 60vh;
 }
 
 
 #footer {
-    background-color: rgb(223, 114, 51, 0.8);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  background-color: rgb(223, 114, 51, 0.8);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 
 }
+
 .texto-footer {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    font-size: 2rem;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-weight: 900;
+  font-size: 2rem;
 }
 
 /*estilos para la carta de personaje*/
@@ -216,6 +217,44 @@ button{
 
   
   
+  /* Cards Favoritos */
+  .divFavoritos, h3{
+    margin: 6rem;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    border: rgb(2, 1, 1) solid 2px;
+    border-radius: 3rem;
+    width: 80%;
+    background-color: rgb(223, 114, 51, 0.8);
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  #card-favs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .imgFav{
+    max-height: 100px;
+    max-width: 100px;
+  }
+
+  .card-name {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  /* Check Favoritos */
   #favorite {
     display: none;
     
