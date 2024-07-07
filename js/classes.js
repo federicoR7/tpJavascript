@@ -1,6 +1,6 @@
 class Guerrero {
-   constructor(nombre, imagen){
-     this.nombre = nombre;
-     this.imagen = imagen;
-   }
- }
+  constructor(nombre, imagen){
+    this.nombre = nombre;
+    this.imagen = imagen;
+  }
+}

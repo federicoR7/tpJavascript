@@ -26,33 +26,30 @@ fetch(API)
     guerrero = json.items;
   });
 
-    // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
-// .catch(error => console.error(`tiene un error: ${error}`))
-
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   const div = document.createElement("div");
-  const nombreDB = document.createElement("span");
-  const imagenDB = document.createElement("img");
-  const kiDB = document.createElement("span");
-  const maxKiDB = document.createElement("span");
-  const historiaDB = document.createElement("p");
-  const fav = document.createElement("button");
   const script = document.createElement("script");
 
-  nombreDB.textContent = `Nombre: ${nombre}`;
-  fav.innerHTML = stringBotonFavorito();
-  imagenDB.src = imagen;
-  kiDB.textContent = `Su KI inicial es de ${ki}`;
-  maxKiDB.textContent = `Su KI maximo es de ${maxKi}`;
-  historiaDB.textContent = `Historia: ${historia}`;
+  div.innerHTML = `<div class="Div">
+            <div class="divNombre"><span class="Nombre">${nombre}</span>
+            <button>
+            `+stringBotonFavorito()+`
+            </button>
+            <img src="${imagen}" class="Imagen">
+            
+            <div class="divKis">
+                <span class="Ki">Ki: ${ki}</span>
+                <br>
+                <span class="MaxKi">Max Ki:${maxKi}</span>
+            </div>
+            
+            </div>
+            
+            <div class="divHistoria">
+                <p>${historia}</p>
+            </div>
+        </div>`;
 
-  nombreDB.classList.add("Nombre");
-  imagenDB.classList.add("Imagen");
-  kiDB.classList.add("Ki");
-  maxKiDB.classList.add("MaxKi");
-  div.classList.add("Div");
-
-  div.append(nombreDB, imagenDB, fav, kiDB, maxKiDB, historiaDB);
   main.appendChild(div);
 
   //!Carga dinamica de JS
@@ -86,7 +83,6 @@ const buscarGuerrero = () => {
     }
   }
 };
-let historialDeBusqueda = [];
 
 function guardarBusqueda(guerrero) {
   if(!historialDeBusqueda.some(item => item[0] === guerrero.nombre))
@@ -99,9 +95,9 @@ const mostrarHistorial = () => {
   historialDeBusqueda.forEach(item => {
     //!Carga de la función
     const li = document.createElement("li");
-    li.textContent = `Nombre: ${item[0]}`;
+    li.textContent = `Nombre: ${item.name}`;
     const img = document.createElement("img");
-    img.src = item[1];
+    img.src = item.imagen;
     img.style.height = "50px";
     img.style.widows = "50px";
     li.appendChild(img);
