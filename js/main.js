@@ -1,5 +1,5 @@
-const main = document.getElementById("main")
-const buttonBuscar = document.getElementById("button")
+const main = document.getElementById("main");
+const buttonBuscar = document.getElementById("button");
 const buttonHist = document.getElementById("buttonHis");
 const buttonFav = document.getElementById("buttonFav");
 const API = `https://dragonball-api.com/api/characters?limit=100`;
@@ -22,20 +22,15 @@ let cardFavs = document.getElementById("card-favs");
 
 fetch(API)
   .then(response => response.json())
-  // .then(json => console.log(json))
   .then(json => {
-    // const guerrero = json.items["0"]
-    guerrero = json.items
+    guerrero = json.items;
+  });
 
     // mostrarEnElDom(guerrero.name, guerrero.image, guerrero.ki)
   })
 // .catch(error => console.error(`tiene un error: ${error}`))
 
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
-  //!Creando los elementos📌
-  const divNombre = document.createElement("div");
-  const divHistoria = document.createElement("div");
-  const divKis = document.createElement("div");
   const div = document.createElement("div");
   const nombreDB = document.createElement("span");
   const imagenDB = document.createElement("img");
@@ -43,10 +38,8 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
   const maxKiDB = document.createElement("span");
   const historiaDB = document.createElement("p");
   const fav = document.createElement("button");
-  const script = document.createElement("script");
 
-  //!Contenido📌
-  nombreDB.textContent = `Nombre: ${nombre}`
+  nombreDB.textContent = `Nombre: ${nombre}`;
   fav.innerHTML = stringBotonFavorito();
   imagenDB.src = imagen
   kiDB.textContent = `Su KI inicial es de ${ki}`
@@ -83,13 +76,13 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
 
 let historialDeBusqueda = [];
 const buscarGuerrero = () => {
-  main.innerHTML = " ";
+  main.innerHTML = "";
 
   if (input.value.trim() === "") {
     alert("Por favor, ingrese un personaje de Dragon Ball Z");
-    document.querySelector("#input").value = "";
+    input.value = "";
   } else {
-    for (elegido of guerrero) {
+    for (const elegido of guerrero) {
       if (elegido.name.toLowerCase() === input.value.toLowerCase()) {
         mostrarEnElDom(elegido.name, elegido.image, elegido.ki, elegido.maxKi, elegido.description);
         currentGuerrero = new Guerrero(elegido.name, elegido.image);
@@ -107,12 +100,30 @@ const buscarGuerrero = () => {
   }
 };
 
-function guardarBusqueda(guerrero) {
-  if(!historialDeBusqueda.some(item => item[0] === guerrero.nombre))
-    historialDeBusqueda.push(guerrero);
+function guardarBusqueda(name, image) {
+  if (!historialDeBusqueda.some(item => item[0] === name)) {
+    historialDeBusqueda.push([name, image]);
+  }
 }
 
+const mostrarHistorial = () => {
+  const historialElement = document.getElementById("historial");
+  historialElement.innerHTML = "";
+  historialDeBusqueda.forEach(item => {
+    //!Carga de la función
+    const li = document.createElement("li");
+    li.textContent = `Nombre: ${item[0]}`;
+    const img = document.createElement("img");
+    img.src = item[1];
+    img.style.height = "50px";
+    img.style.widows = "50px";
+    li.appendChild(img);
+    historialElement.appendChild(li);
+  });
+};
+
 buttonBuscar.addEventListener("click", buscarGuerrero);
+buttonHist.addEventListener("click", mostrarHistorial);
 
 const mostrarFavoritos = () => {
   let fav = document.getElementById(`favoritos`);
@@ -149,7 +160,6 @@ function stringBotonFavorito() {
           d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
         ></path>
       </svg>
-      
     </label>
-  `
+  `;
 }
