@@ -134,7 +134,7 @@ body {
     padding: 20px;
     align-items: center;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     box-shadow: 10px 10px 20px rgb(25, 25, 25),
     -15px -15px 30px rgb(60, 60, 60);
 }
