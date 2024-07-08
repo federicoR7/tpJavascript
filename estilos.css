@@ -26,11 +26,12 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: rgb(223, 114, 51, 0.8);
-
+  box-shadow: 10px 10px 20px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
 }
 
 .title img {
-  width: 100%;
+  width: 40%;
 }
 
 .divImgTitulo {
@@ -48,8 +49,8 @@ body {
   width: 30rem;
   border-radius: 50px;
   margin-top: 1rem;
-
-
+  box-shadow: 2px 2px 5px rgb(25, 25, 25),
+  -5px -5px 100px rgb(60, 60, 60);
 }
 
 #button {
@@ -60,12 +61,16 @@ body {
   border-radius: 50px;
   background-color: rgb(83, 81, 190);
   font-size: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 20px 1px #002fff;
+  border: 1px solid rgb(0, 4, 255);
 }
 
 #button:hover {
   scale: 110%;
   background-color: rgb(255, 108, 23);
-
+  box-shadow: 0px 0px 20px 1px #ff9100;
+  border: 1px solid rgb(255, 115, 0);
 }
 
 #buttonHis,
@@ -77,13 +82,16 @@ body {
   border-radius: 50px;
   background-color: rgb(83, 81, 190);
   font-size: 1.5rem;
+  box-shadow: 0px 0px 20px 1px #002fff;
+  border: 1px solid rgb(0, 4, 255);
 }
 
 #buttonHis:hover,
 #buttonFav:hover {
   scale: 110%;
   background-color: rgb(255, 108, 23);
-
+  box-shadow: 0px 0px 20px 1px #ff9100;
+  border: 1px solid rgb(255, 115, 0);
 }
 
 .barraBusqueda {
@@ -116,6 +124,7 @@ body {
     gap: 30px;
     position: relative;
     min-height: 100vh;
+    
 }
 
 
@@ -126,6 +135,8 @@ body {
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
+    box-shadow: 10px 10px 20px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
 }
 
 .texto-footer {
@@ -140,16 +151,10 @@ body {
   align-items: flex-start;
   color: rgb(255, 255, 255);
   font-weight: 500;
-  font-size: 1.8rem;
-  
+  font-size: 1.5rem;
 }
 .autores-footer ul{
   list-style: none;
-}
-.footer-gif{
-  display: flex;
-  flex-direction: column;
-    align-items: center;
 }
 
 /*estilos para la carta de personaje*/
@@ -168,10 +173,10 @@ body {
     border-radius: 3rem;
     width: 70%;
     background-color: rgb(223, 114, 51, 0.8);
-   
-
+    box-shadow: 15px 15px 30px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
 }
-
+  
 
 .divNombre{
   margin-bottom: 1rem;
