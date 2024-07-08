@@ -27,10 +27,12 @@ fetch(API)
   });
 
 const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
-  const div = document.createElement("div");
+ // const div = document.createElement("div");
   const script = document.createElement("script");
 
-  div.innerHTML = `<div class="Div">
+ /* div.innerHTML = `<div class="Div">*/
+   main.innerHTML = `<div class="Div">
+
             <div class="divNombre"><span class="Nombre">${nombre}</span>
             <button>
             `+stringBotonFavorito()+`
@@ -38,9 +40,9 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
             <img src="${imagen}" class="Imagen">
             
             <div class="divKis">
-                <span class="Ki">Ki: ${ki}</span>
+                <span class="Ki">-Ki: ${ki}</span>
                 <br>
-                <span class="MaxKi">Max Ki:${maxKi}</span>
+                <span class="MaxKi">-Max Ki:${maxKi}</span>
             </div>
             
             </div>
@@ -50,7 +52,7 @@ const mostrarEnElDom = (nombre, imagen, ki, maxKi, historia) => {
             </div>
         </div>`;
 
-  main.appendChild(div);
+ // main.appendChild(div);
 
   //!Carga dinamica de JS
   script.src = './js/fav.js';
