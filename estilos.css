@@ -34,6 +34,8 @@ html {
   display: flex;
   justify-content: space-between;
   background-color: rgb(223, 114, 51, 0.8);
+  box-shadow: 10px 10px 20px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
   width: 100%;
 
 }
@@ -57,8 +59,8 @@ html {
   width: 30rem;
   border-radius: 50px;
   margin-top: 1rem;
-
-
+  box-shadow: 2px 2px 5px rgb(25, 25, 25),
+  -5px -5px 100px rgb(60, 60, 60);
 }
 
 #button {
@@ -69,12 +71,16 @@ html {
   border-radius: 50px;
   background-color: rgb(83, 81, 190);
   font-size: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 20px 1px #002fff;
+  border: 1px solid rgb(0, 4, 255);
 }
 
 #button:hover {
   scale: 110%;
   background-color: rgb(255, 108, 23);
-
+  box-shadow: 0px 0px 20px 1px #ff9100;
+  border: 1px solid rgb(255, 115, 0);
 }
 
 #buttonHis,
@@ -86,13 +92,16 @@ html {
   border-radius: 50px;
   background-color: rgb(83, 81, 190);
   font-size: 1.5rem;
+  box-shadow: 0px 0px 20px 1px #002fff;
+  border: 1px solid rgb(0, 4, 255);
 }
 
 #buttonHis:hover,
 #buttonFav:hover {
   scale: 110%;
   background-color: rgb(255, 108, 23);
-
+  box-shadow: 0px 0px 20px 1px #ff9100;
+  border: 1px solid rgb(255, 115, 0);
 }
 
 .barraBusqueda {
@@ -135,7 +144,9 @@ html {
     padding: 20px;
     align-items: center;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    box-shadow: 10px 10px 20px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
     width: 100%;
 }
 
@@ -173,10 +184,10 @@ html {
     border-radius: 3rem;
     width: 70%;
     background-color: rgb(223, 114, 51, 0.8);
-   margin-bottom: 6rem;
-
+   margin-bottom: 6rem; box-shadow: 15px 15px 30px rgb(25, 25, 25),
+    -15px -15px 30px rgb(60, 60, 60);
 }
-
+  
 
 .divNombre{
   margin-bottom: 1rem;
